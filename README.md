@@ -18,36 +18,17 @@
 ## Sourcecode
 
 ## Gradle
-1. project/build.gradle
-    ```groovy
-    buildscript {
-        ...
-    
-        dependencies {
-            ...
-    
-            classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
-        }
-    }
-    ```
 
-2. project/app/build.gradle
+app/build.gradle
+
     ```groovy
-    apply plugin: 'com.android.application'
-    apply plugin: 'com.neenbedankt.android-apt'
-    
-    android {
-        ...
-    }
     
     dependencies {
         ...
     
-        //Required by Dagger2
-        apt 'com.google.dagger:dagger-compiler:2.0.2'
-        compile 'com.google.dagger:dagger:2.0.2'
-        // Dagger 2 中会用到 @Generated 注解，而 Android SDK 中没有 javax.anotation.Generated.class，所以在 Android 项目要添加此句
-        provided 'org.glassfish:javax.annotation:10.0-b28' 
+       // Add Dagger dependencies，2017.04.26
+      compile 'com.google.dagger:dagger:2.11-rc1'
+      annotationProcessor 'com.google.dagger:dagger-compiler:2.11-rc1'
     }
     ```
 

@@ -13,7 +13,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -64,9 +64,10 @@ public class UserAdapter extends BaseAdapter {
     }
 
     static class ViewHolder {
-        @Bind(R.id.tv_user)
+        @BindView(R.id.tv_user)
         TextView textView;
-        public ViewHolder(View itemView) {
+
+        ViewHolder(View itemView) {
             ButterKnife.bind(this, itemView);
         }
     }
